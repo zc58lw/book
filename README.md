@@ -1,15 +1,14 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
-For beginners like me to learn the concepts in [Redux](https://github.com/reactjs/redux)
+基于[Redux](https://github.com/reactjs/redux)
 
-To run this example:
+跑起来:
 
-1. [Download this repo](https://github.com/jackielii/simplest-redux-example/archive/master.zip) or `git clone https://github.com/jackielii/simplest-redux-example.git`
-2. From the repo folder run:  
-   `npm install`
-3. `npm start`
-4. open [http://localhost:8000/](http://localhost:8000/) in the browser
+1. [下载源码压缩包](https://github.com/mynamexyy/book/archive/master.zip) 或者用git `git clone https://github.com/mynamexyy/book.git`
+2. 下载完后安装依赖:`npm install`
+3. 需要热重载的模式运行：`npm run debug`
+   需要打包:`npm run dev`
+   需要打包并压缩：`npm run build`
+4. 如果是热加载浏览器会自动打开'https://localhost:9000/',
 
-And also head over to http://redux.js.org/ for some great documentation.
-
-There is also a [webpack](https://github.com/jackielii/simplest-redux-example/tree/webpack) and an [ES5](https://github.com/jackielii/simplest-redux-example/tree/es5) example.
+皮皮
