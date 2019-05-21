@@ -12,7 +12,6 @@ class Counter extends Component {
         return (<div className={'main'}>
                 <span className={'value'}>{value}</span>
                 <button className={'btn'} onClick={onIncreaseClick}>增加</button>
-                <Link to="/">清空</Link>
             </div>)
     }
 }
