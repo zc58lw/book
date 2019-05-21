@@ -8,5 +8,8 @@
 *  需要打包:`npm run dev`,会打包进dist
 *  需要打包并压缩：`npm run build`,会打包进dist
 *  如果是热加载浏览器会自动打开'https://localhost:9000/',
-
+## 文件信息
+*  webpack.config.js是打包的配置文件
+*  webpack.config.dev.js是热重载的配置文件
+*  .gitignore里面对node_module和dist文件夹进行了git操作的屏蔽
 皮
