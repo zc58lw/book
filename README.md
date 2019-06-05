@@ -5,9 +5,9 @@
 ## 跑起来
 *  下载完后安装依赖:`npm install`
 *  需要热重载的模式运行：`npm run debug`
-*  需要打包:`npm run dev`,会打包进dist
-*  需要打包并压缩：`npm run build`,会打包进dist
-*  如果是热加载浏览器会自动打开'https://localhost:9000/',
+*  需要打包:`npm run dev`
+*  需要打包并压缩：`npm run build`
+*  会打包进dist',如果是热加载浏览器会自动打开'https://localhost:9000/',
 ## 文件信息
 *  webpack.config.js是打包的配置文件
 *  webpack.config.dev.js是热重载的配置文件
