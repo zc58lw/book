@@ -15,7 +15,6 @@ class ImgesDemo extends Component {
         <div className={'backgroung_img'}>
         
         </div>
-        {/*<Link to="/">清空</Link>*/}
       </div>)
   }
 }

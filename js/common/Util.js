@@ -1,11 +1,31 @@
-module.exports = {
-    transitionTo: function (url) {
-        var loc = window.location;
-        var addr = loc.protocol + '//' + loc.host + '/';
-        // loc.hash = '#' + url;
-        if(window.location.href.indexOf(url) != -1){
-            return;
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import {Spin} from 'antd'
+
+export default {
+    showloading: function (delayCloseTime) {
+        var div = document.createElement('div');
+        div.id = 'loadingmodal';
+        document.body.appendChild(div);
+        ReactDOM.render((<Spin size="large"/>), div);
+        if (delayCloseTime) {
+            setTimeout(function () {
+                var lnode = document.getElementById('loadingmodal');
+                if (lnode) {
+                    var pnode = lnode.parentNode;
+                    ReactDOM.unmountComponentAtNode(pnode);
+                    var ppnode = pnode.parentNode;
+                    ppnode.removeChild(pnode);
+                }
+            }, delayCloseTime);
         }
-        window.location.replace(addr + '#' + url);
+    },
+    hideloading: function () {
+        var lnode = document.getElementById('loadingmodal');
+        if (lnode) {
+            var pnode = lnode.parentNode;
+            pnode.removeChild(lnode)
+            //ReactDOM.unmountComponentAtNode(pnode);
+        }
     },
 };

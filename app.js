@@ -5,6 +5,6 @@ import MyRouter from './js/MyRouter'
 import './style/main.scss'
 
 ReactDOM.render(
-  <MyRouter />,
+  <MyRouter  />,
   document.getElementById('root')
 )

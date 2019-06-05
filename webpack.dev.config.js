@@ -17,7 +17,7 @@ module.exports = {
         contentBase: './dist',
         proxy:[{
             context: ['/auth', '/api'],
-            target: 'http://localhost:3000',
+            target: 'http://127.0.0.1',
         }], // 设置请求代理
         open: true, // 启动后是否自动打开默认浏览器
         //指定打开浏览器时的导航页面。
@@ -54,7 +54,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: [
+                use:[
                     {
                         loader: 'url-loader',
                         options: {

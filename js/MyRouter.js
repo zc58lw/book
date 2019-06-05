@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
-import {BrowserRouter,Route,hashHistory} from 'react-router-dom'
-
+import {BrowserRouter,Route,hashHistory,Router} from 'react-router-dom'
+import store from './store/store'
 
 import Menu from './pages/Menu'
 import ImgesDemo from './pages/ImgesDemo'
-import DataDemo from './pages/DataDemo'
-
-class MyRouter extends Component {
+import AddAndReduceDemo from './pages/AddAndReduceDemo'
+import AxiosWithReduxDemo from './pages/AxiosWithReduxDemo'
+export default class MyRouter extends Component {
     render() {
-        return (<BrowserRouter history={hashHistory}>
-                    <div className="container">
-                        <Route name='index' path='/' component={Menu}></Route>
-                        {/*<Route name='index' path='/menu' component={Menu}></Route>*/}
-                        <Route name='index' path='/datademo' component={DataDemo}></Route>
-                        <Route name='index' path='/imgesdemo' component={ImgesDemo}></Route>
-                    </div>
-                    {/*<Route name='WXFirstLogin' path='/WXFirstLogin' component={WXFirstLogin} onEnter={setTitle}></Route>*/}
-                    {/*<Route name='main' path='/main/:submenu' component={MainComponentM} onEnter={setTitle}></Route>*/}
-                </BrowserRouter>)
+        return (
+            
+                <Provider store={store}>
+                    <BrowserRouter history={hashHistory}>
+                        <div>
+                            <Route name='index' path='/' component={Menu}></Route>
+                            <Route name='index' path='/datademo' component={AddAndReduceDemo}></Route>
+                            <Route name='index' path='/imgesdemo' component={ImgesDemo}></Route>
+                            <Route name='index' path='/axiosdemo' component={AxiosWithReduxDemo}></Route>
+                        </div>
+                    </BrowserRouter>
+                </Provider>
+            
+        )
     }
 }
-
-module.exports =MyRouter
