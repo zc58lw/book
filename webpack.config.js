@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+var webpack = require("webpack");
 
 module.exports = {
     entry:{
@@ -60,15 +62,26 @@ module.exports = {
         ]
     },
     plugins:[
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            root: __dirname + './dist',
+            cleanOnceBeforeBuildPatterns: [__dirname + '/dist/index.html',__dirname + '/dist/css/*.*',__dirname + '/dist/js/*.*',__dirname + '/dist/images/*.*'],
+            verbose: true,
+            dry: false
+        }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: './dist/public/manifest.json',
+        }),
         new HtmlWebpackPlugin({
             chunks:['index'],
             filename:'index.html',//制定生成文件的目录
             template:'index.html'//制定模板
-        })
-        ,
+        }),
+        new AddAssetHtmlWebpackPlugin({
+            filepath: __dirname + '/dist/public/dll.js'// 对应的 dll 文件路径
+        }),
         new ExtractTextPlugin({
-           filename:"css/[name]_[hash].css",//制定编译后的文件名称
+            filename:"css/[name]_[hash].css",//制定编译后的文件名称
             allChunks:true,//把分割的块分别打包
         })
     ]

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
+    "build:dll": "webpack --config ./webpack.dll.config.js",
     "build": "webpack --mode production",
     "debug": "webpack-dev-server --config ./webpack.dev.config.js --history-api-fallback"
   },
@@ -18,6 +19,7 @@
   ],
   "author": "xyy",
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^3.1.3",
     "antd": "^3.19.2",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
