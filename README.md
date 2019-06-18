@@ -8,7 +8,7 @@
 *  打包之前先`npm run build:dll`打包公共依赖
 *  打包：`npm run dev`
 *  打包并压缩：`npm run build`
-*  会打包进dist',如果是热加载浏览器会自动打开'https://localhost:9000/',
+*  会打包进/dist,如果是热加载浏览器会自动打开'https://localhost:9000/',
 ## 文件信息
 *  webpack.config.js是打包的配置文件
 *  webpack.config.dll.js是打包公共依赖的配置文件
