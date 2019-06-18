@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 var webpack = require("webpack");
+var path = require("path");
 
 module.exports = {
     entry:{
@@ -13,6 +14,9 @@ module.exports = {
         filename: "js/[name]_[hash].js",
         publicPath:'../'
     },
+    performance: {
+        hints: false
+    },//不展示文件体积的警告
     module: {
         rules: [
             {
@@ -68,9 +72,10 @@ module.exports = {
             verbose: true,
             dry: false
         }),
+        
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: './dist/public/manifest.json',
+            manifest: __dirname + '/dist/vendor-manifest.json',
         }),
         new HtmlWebpackPlugin({
             chunks:['index'],
@@ -78,7 +83,7 @@ module.exports = {
             template:'index.html'//制定模板
         }),
         new AddAssetHtmlWebpackPlugin({
-            filepath: __dirname + '/dist/public/dll.js'// 对应的 dll 文件路径
+            filepath: __dirname + '/dist/vendor.dll.js',
         }),
         new ExtractTextPlugin({
             filename:"css/[name]_[hash].css",//制定编译后的文件名称

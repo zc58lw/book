@@ -23,25 +23,22 @@ const vendors = [
 module.exports = {
     mode: 'production',
     entry: {
-        // 定义程序中打包公共文件的入口文件vendor.js
-        dll: vendors
+        vendor: vendors
     },
-    
+    performance: {
+        hints: false
+    },//不展示文件体积的警告
     output: {
-        path: __dirname + "/dist/public",
-        filename: 'dll.js',
-        publicPath:'../'
+        path:  __dirname + '/dist/',
+        filename: '[name].dll.js',
+        library: '[name]_[hash]',
+        libraryTarget: 'this'
     },
     
     plugins: [
         new webpack.DllPlugin({
-            //// 定义程序中打包公共文件的入口文件vendor.js
-            //context: process.cwd(),
-            
-            // manifest.json文件的输出位置
-            path: __dirname + "/dist/public/manifest.json",
-            
-            // 定义打包的公共vendor文件对外暴露的函数名
+            context: process.cwd(),
+            path: __dirname + '/dist/[name]-manifest.json',
             name: '[name]_[hash]'
         })
     ]

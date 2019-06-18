@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
-import {BrowserRouter,Route,hashHistory,Router} from 'react-router-dom'
+import {BrowserRouter,Route,hashHistory,HashRouter} from 'react-router-dom'
 import store from './store/store'
 
 import Menu from './pages/Menu'
@@ -12,14 +12,14 @@ export default class MyRouter extends Component {
         return (
             
                 <Provider store={store}>
-                    <BrowserRouter history={hashHistory}>
+                    <HashRouter history={hashHistory}>
                         <div>
                             <Route name='index' path='/' component={Menu}></Route>
                             <Route name='index' path='/datademo' component={AddAndReduceDemo}></Route>
                             <Route name='index' path='/imgesdemo' component={ImgesDemo}></Route>
                             <Route name='index' path='/axiosdemo' component={AxiosWithReduxDemo}></Route>
                         </div>
-                    </BrowserRouter>
+                    </HashRouter>
                 </Provider>
             
         )

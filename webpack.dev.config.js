@@ -4,21 +4,18 @@ module.exports = {
     entry:{
         index:'./app.js'
     },
-    output: {
-        path: __dirname + "/dist",
-        filename: "[name]_[hash].js"
-    },
     devServer:{
         host: 'localhost',
         inline:true,
-        https: true,
+        https: false,
         port: 9000, // 启动端口默认8080
         hot: true, // 是否启动热模块替换,(启用下也会启用自动刷新)
         contentBase: './dist',
         proxy:[{
             context: ['/auth', '/api'],
-            target: 'http://127.0.0.1',
+            target: 'http://127.0.0.1:8888',
         }], // 设置请求代理
+        //tip：如果代码中的请求路径是'/api'，反向代理最终的请求路径会是http://127.0.0.1:8888/api
         open: true, // 启动后是否自动打开默认浏览器
         //指定打开浏览器时的导航页面。
         openPage: '',
@@ -66,14 +63,15 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: {
-                  loader: 'html-loader'
+                    loader: 'html-loader'
                 }
-            } 
+            }
         ]
     },
     watchOptions: {
       poll: true
-    },
+    }
+    ,
     plugins:[
         new HtmlWebpackPlugin({
             chunks:['index'],
