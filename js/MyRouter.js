@@ -12,14 +12,14 @@ export default class MyRouter extends Component {
         return (
             
                 <Provider store={store}>
-                    <HashRouter history={hashHistory}>
+                    <BrowserRouter history={hashHistory}>
                         <div>
                             <Route name='index' path='/' component={Menu}></Route>
                             <Route name='index' path='/datademo' component={AddAndReduceDemo}></Route>
                             <Route name='index' path='/imgesdemo' component={ImgesDemo}></Route>
                             <Route name='index' path='/axiosdemo' component={AxiosWithReduxDemo}></Route>
                         </div>
-                    </HashRouter>
+                    </BrowserRouter>
                 </Provider>
             
         )

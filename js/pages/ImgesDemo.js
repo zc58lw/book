@@ -16,7 +16,7 @@ class ImgesDemo extends Component {
             <img src={require('../../images/2.jpg')}/>
             <img src={require('../../images/index/3.jpg')}/>
             <div className={'backgroung_img'}>
-            
+
             </div>
         </div>)
     }
