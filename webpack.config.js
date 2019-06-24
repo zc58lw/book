@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require("webpack");
 var path = require("path");
 
@@ -88,6 +89,12 @@ module.exports = {
         new ExtractTextPlugin({
             filename:"css/[name]_[hash].css",//制定编译后的文件名称
             allChunks:true,//把分割的块分别打包
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: __dirname+'/others',
+                to: __dirname+'/dist/others',
+            }
+        ])
     ]
 };

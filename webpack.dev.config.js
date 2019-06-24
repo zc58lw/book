@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry:{
@@ -77,6 +78,12 @@ module.exports = {
             chunks:['index'],
             filename:'index.html',
             template:'index.html'
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: __dirname+'/others',
+                to: __dirname+'/dist/others',
+            }
+        ])
     ]
 };
